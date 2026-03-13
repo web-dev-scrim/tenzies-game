@@ -18,7 +18,7 @@ export default function Game() {
   function setDieHeld(id) {
     setDice(oldDice => {
       return oldDice.map(die => {
-        return die.id === id ? { ...die, isHeld: !die.isHeld } : die;
+        return (die.id === id && !die.isHeld) ? { ...die, isHeld: true } : die;
       })
     })
   }
