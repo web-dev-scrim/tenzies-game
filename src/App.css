@@ -56,7 +56,9 @@ main>div {
 }
 
 .roll-btn {
-  width: 92.16px;
+  white-space: nowrap;
+  width: auto;
+  padding: 6px 21px;
   height: 35.84px;
   background-color: #5035FF;
   color: white;
