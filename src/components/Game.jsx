@@ -26,7 +26,7 @@ export default function Game() {
 
   useEffect(() => {
 
-    if (isGameWon) { 
+    if (isGameWon && buttonRef.current) { 
       buttonRef.current.focus();
     }
    }, [isGameWon]);

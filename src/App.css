@@ -9,89 +9,176 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  padding: 1rem;
+  background-color: #0B2434;
 }
 
+/* Mobile-first: Base styles for small screens (320px+) */
 main {
-  width: 360px;
-  height: 379px;
+  width: 100%;
+  max-width: 340px;
+  min-height: 400px;
   background-color: #0B2434;
   border: 1px solid white;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 1rem;
 }
 
 main>div {
-  width: 320px;
-  height: 320px;
+  width: 100%;
+  min-height: 350px;
   border: 1px solid black;
   border-radius: 12px;
   background-color: #F5F5F5;
   text-align: center;
+  padding: 1rem;
 }
 
 .game {
-  width: 250.88px;
-  height: 290px;
-  margin: 20px auto;
-
+  width: 100%;
+  max-width: 280px;
+  margin: 1rem auto;
+  padding: 0.5rem;
 }
 
 .game-title {
   font-family: 'Karla', sans-serif;
   font-weight: bold;
-  font-size: 25.6px;
-  letter-spacing: -3%;
+  font-size: clamp(1.5rem, 5vw, 1.6rem);
+  letter-spacing: -0.03em;
   color: #2B283A;
+  margin: 0;
 }
 
 .game-description {
   color: #4A4E74;
-  font-size: 13.11px;
+  font-size: clamp(0.75rem, 3vw, 0.82rem);
   font-weight: normal;
-  letter-spacing: -3%;
-  margin-top: 10px;
+  letter-spacing: -0.03em;
+  margin-top: 0.625rem;
+  line-height: 1.4;
 }
 
 .roll-btn {
   white-space: nowrap;
   width: auto;
-  padding: 6px 21px;
-  height: 35.84px;
+  padding: 0.5rem 1.5rem;
+  min-height: 44px;
   background-color: #5035FF;
   color: white;
   border: none;
   border-radius: 8px;
   font-family: 'Karla', sans-serif;
-  font-size: 16.38px;
+  font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
-  margin-top: 30px;
+  margin-top: 1.5rem;
+  transition: background-color 0.2s ease;
+}
+
+.roll-btn:hover {
+  background-color: #3d28cc;
+}
+
+.roll-btn:active {
+  transform: scale(0.98);
 }
 
 .dice {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  justify-items: center;
 }
 
 .die {
   font-family: 'Karla', sans-serif;
   font-weight: bold;
-  font-size: 20.59px;
-  width: 35.84px;
-  height: 35.84px;
+  font-size: 1.25rem;
+  width: 100%;
+  aspect-ratio: 1;
+  max-width: 50px;
+  min-height: 44px;
   background-color: white;
   color: #2B283A;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  margin-top: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.die:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Tablet and larger screens (480px+) */
+@media (min-width: 480px) {
+  main {
+    max-width: 380px;
+  }
+
+  main>div {
+    min-height: 360px;
+  }
+
+  .game {
+    max-width: 300px;
+  }
+
+  .dice {
+    gap: 0.75rem;
+  }
+
+  .die {
+    max-width: 54px;
+    font-size: 1.3rem;
+  }
+}
+
+/* Desktop screens (768px+) */
+@media (min-width: 768px) {
+  body {
+    padding: 2rem;
+  }
+
+  main {
+    max-width: 420px;
+  }
+
+  main>div {
+    min-height: 380px;
+    padding: 1.5rem;
+  }
+
+  .game {
+    max-width: 320px;
+  }
+
+  .game-title {
+    font-size: 1.6rem;
+  }
+
+  .game-description {
+    font-size: 0.82rem;
+  }
+
+  .dice {
+    gap: 1rem;
+  }
+
+  .die {
+    max-width: 56px;
+    font-size: 1.35rem;
+  }
+
+  .roll-btn {
+    font-size: 1.02rem;
+  }
 }
